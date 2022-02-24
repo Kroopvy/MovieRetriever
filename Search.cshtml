@@ -1,0 +1,82 @@
+﻿
+@model MovieRetriever.APIRequester.Entities.SearchResults
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+<form name="form1" action="Search" method="post">
+    <div class="form-group">
+        <input class="form-control" type="text" name="KeyWord" placeholder="Enter keyword .." />   <!-- not keyWord?? -->
+        <input class="form-control" type="number" name="Page" placeholder="Page number to display" />
+    </div>
+    <button class="btn btn-info btn-block">Click here to find !</button>
+</form>
+
+<div @*style=" float: auto"*@>
+    <h4>SearchResults for @Session["KeyWord"]:</h4>
+    <hr />
+
+    @*@if (Model?.Search == null)
+    {<p>No result for that search.</p>
+    }
+    else*@
+    @if (Model?.Search != null)
+    {
+        foreach (var item in Model.Search)
+        {
+            <div style=" padding-left:10%">
+                <img src="@item.Poster"/>   @*<img src="@item.Poster" />*@
+                &nbsp &nbsp &nbsp &nbsp
+                <label style=" font-family:'Times New Roman';font-size:larger ">
+                    Title: @item.Title - Type: @item.Type - Year: @item.Year
+                </label>
+
+                @*<a href=" @item.Poster">Click to see Poster</a>*@
+
+                <br /> <br />
+
+
+            </div>
+        }
+    }
+    
+</div>
+
+@*@{ViewBag.KeyWord = form1.name;
+        ViewBag.Page = form1.Page;
+    }*@
+
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.TotalResults)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.TotalResults)
+    </dd>
+
+</dl>
+
+<h5 bold> You're viewing page @Session["Page"]</h5>
+
+@*@Html.ActionLink("Next", "Search", new { Page = Model.Page +1 });*@
+
+
+@Html.ActionLink("New Search or Page", "Search", "Movie")
+
+
+@*<form  name="form2" action="#" method="post">
+    <div class="form-group">*@
+@*<input type="button" value="Next" onclick="location.href='@Url.Action("SearchPrev", "Movie")'" />*@  @*, new { ViewBag.KeyWord, ViewBag.Page}*@
+@*  @Html.ActionLink("Prev", "SearchPrev", "Movie"
+    @*</ form >*@
+@*@{
+        ViewBag.KeyWord = form.KeyWord;
+    }*@
+
+@*<p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

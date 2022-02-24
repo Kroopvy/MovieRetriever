@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Welcome";
+}
+
+<div class="jumbotron" style="height:25%; padding:7px">
+    <h1> MovieRetriever</h1><br>
+    <h4>Looking for a particular movie? Already have an API key at hand?</h4>
+    <h4>Then the desired movie is a single click ahead: simply give in the search link the APi key with a keyword.</h4>
+    <h4> Just make sure the term you enter qualify the screenplay precisely: e. g. title or main performer(s).</h4>
+    <p><a href="http://localhost:60591/Movie/Search" class="btn btn-primary btn-lg">Search &raquo;</a></p>
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Use movie title</h2>
+        <p>
+            The title of the movie suits perfectly as keyword.
+        </p>
+        <p>
+            Alternatively, use combination of words you remenber from the designation.
+        </p>
+        <p><a class="btn btn-default" href="http://localhost:60591/Movie/Search">Title &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Give actors' names</h2>
+        <p>Enter full names of the artists featuring in the movie.</p>
+        <p>Surnames of the main actors may be sufficient.</p>
+        <p><a class="btn btn-default" href="http://localhost:60591/Movie/Search">Name(s) &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Try the type</h2>
+        <p>Give in for example movie, TV Series, or other..</p>
+        <p><a class="btn btn-default" href="http://localhost:60591/Movie/Search">Search &raquo;</a></p>
+    </div>
+</div>
